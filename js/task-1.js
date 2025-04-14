@@ -104,4 +104,51 @@ console.log(
     balance: 2764
   },
 ])
-); // ["Moore Hensley", "Sharlene Bush", "Ross Vazquez", "Elma Head", "Carey Barr", "Blackburn Dotson", "Sheree Anthony"]
+); //
+//  ["Moore Hensley", "Sharlene Bush", "Ross Vazquez", "Elma Head", "Carey Barr", "Blackburn Dotson", "Sheree Anthony"]
+
+
+let customer = {
+  name: 'John',
+  age: 30,
+  balance: 100,
+  deduct: function(amount) {
+    this.balance -= amount;
+  },
+
+  topUp: function(amount) {
+    this.balance += amount;
+  },
+
+  getDiscount: function() {
+    return discount;
+  },
+
+  setDiscount: function(discountPercentage) {
+    this.discount = discountPercentage;
+  },
+
+  getBalance: function() {
+    return this.balance;
+  },
+
+  getOrders: function() {
+    return this.orders;
+  },
+
+  addOrder: function(orderAmount, orderName) {
+    if (!this.orders) {
+      this.orders = [];
+    }
+    this.orders.push({ amount: orderAmount, name: orderName });
+    return this.orders;
+  },
+};
+
+console.log('Balance before deduction:', customer.balance);
+customer.deduct(50);
+console.log('Balance after deduction:', customer.balance);
+
+console.log('Balance before top up:', customer.balance);
+customer.topUp(20);
+console.log('Balance after top up:', customer.balance);
